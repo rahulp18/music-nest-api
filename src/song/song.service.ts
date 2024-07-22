@@ -85,4 +85,13 @@ export class SongService {
       },
     });
   }
+  async findMany(ids: string[]) {
+    return this.prisma.song.findMany({
+      where: {
+        id: {
+          in: ids,
+        },
+      },
+    });
+  }
 }
